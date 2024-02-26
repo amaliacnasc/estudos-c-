@@ -1,0 +1,86 @@
+using System; 
+namespace Csharp;
+//Crie uma calculadora que realiza operações básicas, como adição, subtração, multiplicação e divisão.
+
+// ESTE É O CODIGO PRINCIPAL 
+static class Program
+{
+
+    public static void Main()
+    {
+    
+        
+        int escolha1;
+        Console.WriteLine("\nBem vindo a calculadora!\n");
+        Console.WriteLine("Por favor, escolha a operação que deseja realizar: \n1-Adição\n2-Subtração\n3-Multiplicação\n4-Divisão");
+        escolha1 = Convert.ToInt16(Console.ReadLine());
+
+        switch (escolha1)
+        {
+
+            case 1:
+                Console.WriteLine("Escolha o primeiro número\n");
+                double a1 = Convert.ToInt32(Console.ReadLine()); // a1 = numero da adicao 1
+                Console.WriteLine("Agora digite o 2 número");
+                double a2 = Convert.ToInt32(Console.ReadLine()); // a2 = numero da adicao 2 
+                Console.WriteLine("O resultado é " + Calculadora.Adicao(a1, a2));
+                break;
+
+            case 2:
+                Console.WriteLine("Escolha o primeiro número \n");
+                double s1 = Convert.ToInt32(Console.ReadLine()); // s1 = numero da subtração 1 
+                Console.WriteLine("Agora escolha o 2 número\n");
+                double s2 = Convert.ToInt32(Console.ReadLine()); // s2 = numero da subtração 2 
+                Console.WriteLine($"O resultado da subtração entre {s1} e {s2} é de " + Calculadora.Subtracao(s1, s2));
+                break;
+
+            case 3:
+                Console.WriteLine("Escolha o primeiro número da sua operação \n");
+                double m1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Escolha o 2 número\n");
+                double m2 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine($"O resultado da multiplicação entre {m1} e {m2} é de " + Calculadora.Multiplicacao(m1, m2));
+                break;
+
+            case 4:
+                Console.WriteLine("Escolha o dividendo da sua operação \n");
+                double d1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Escolha o divisor \n");
+                double d2 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine($"O resultado da divisão entre {d1} e {d2} é de " + Calculadora.Divisao(d1, d2));
+                break;
+
+        }
+    }
+}
+// ESTE É O NAMESPACE 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
+
+namespace Csharp
+{
+    public class Calculadora
+    {
+       
+       public static double Adicao(double X,double y){
+            return X + y; 
+        
+        }
+
+        public static double Subtracao (double x, double y){
+            return x - y; 
+        }
+
+        public static double Multiplicacao (double x, double y){
+            return x * y; 
+        }
+
+        public static double Divisao (double x, double y){
+            return x / y;
+        }
+    }
+}
