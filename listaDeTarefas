@@ -1,0 +1,77 @@
+//Crie uma aplicação que permite ao usuário adicionar, editar, excluir e marcar tarefas como concluídas.
+
+public class Program
+{
+
+    static void Main()
+    {
+        // Criando um menu 
+        // meu loop de adição de tarefas nao esta encerrando
+        int escolha1; // fazendo uma definição aqui devido ao escopo 
+        string[] tarefas = new string[5];
+        Console.WriteLine("TO-DO LIST\n");
+
+        Console.WriteLine(" Digite (1) para adicionar nova tarefa ou (2) para finalizar o programa:\n");
+        escolha1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Adicione 5 atividades a sua lista de tarefas: \n");
+        do
+        {
+
+            int i;
+            for ( i = 0; i < 5; i++)
+            {
+                // loop para armazenar itens da lista
+                tarefas[i] = Console.ReadLine();
+            }
+            for ( i = 0; i < 5; i++)
+            {
+                // loop para imprimir itens da lista
+               Console.WriteLine( i+1 + "-" + tarefas[i]  );
+               // condição para parar o loop 
+                if (i == 4){
+                    Console.WriteLine("Digite (2) para dar continuidade\n");
+                    escolha1 = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+        } while (escolha1 == 1);
+        
+        //menu de edição de lista
+        Console.WriteLine("Digite a opção desejada:\n(1)-Visualizar lista\n(2)-Editar item da lista\n(3)-Excluir item da lista\n(4)-Encerrar programa\n");
+        int escolha2 = Convert.ToInt32(Console.ReadLine()); 
+
+        switch(escolha2){
+
+         case 1:
+         for ( int i=0; i<5; i++){
+                    Console.WriteLine(i + 1 + "- "+ tarefas[i]);
+         }
+                break;   
+
+        case 2:
+                Console.WriteLine("Digite o número do item que você deseja substituir:\n");
+                int indice = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine($"Por qual palavra você deseja substituir o item {indice}?\n");
+                string novaPalavra = Console.ReadLine();
+                string palavraAntiga = tarefas[indice-1];
+                tarefas[indice-1] = novaPalavra;
+                 for ( int i=0; i<5; i++){
+                    Console.WriteLine(i + 1 + "- "+ tarefas[i]);
+         }
+                break; 
+
+        case 3:
+                Console.WriteLine("Digite o número do item que deseja remover:\n");
+                int indiceRemover = Convert.ToInt32(Console.ReadLine());
+                tarefas[indiceRemover - 1] = null;
+                Console.WriteLine($"Item '{tarefas[indiceRemover]}' removido com sucesso.\n");
+                 for ( int i=0; i<5; i++){
+                    Console.WriteLine(i + 1 + "- "+ tarefas[i]);
+         }
+                break;
+
+        case 4:
+                Console.WriteLine("Encerrando programa...\nPrograma encerrado.");
+                break;
+        }
+    }
+}
